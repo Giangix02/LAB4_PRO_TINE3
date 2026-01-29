@@ -1,0 +1,123 @@
+Q1
+
+can't see any difference between basic and pro. 
+range min:4 A max: 10 A  (11 A can still be seen but the coupling isn't this strong, circuit too sensitive)
+3 A matlab can't solve.
+
+Q2
+
+--removing final molecule:
+10A: signal not inverted in firts 3 images then inverts
+
+4A: signal not inverted in firts 3 images then inverts
+
+5A: signal not inverted in firts 3 images then inverts
+
+11A: still doesn't work
+
+--removing first molecule:
+
+10A: always inverted
+
+4A: same
+
+11A: weak coupling
+
+--removing first molecule of second clock group
+
+10A: first cycle not inverted, then inverts
+
+--
+
+--final reasoning:
+the group with odd number of mol. inverts the information of the previous group.
+
+
+Q3
+
+clk1: drivers signal correctly propagated
+clk2: signal transfered to both top bottom wire in the lowest energy demanding configuration.
+clk3: signal transfered to the center wire. The best energy configuration is when the charges are the farest from each other--> input signal actually inverted
+
+at 8A sends an information but does not invert. Mess in the interface between clk1 and clk2
+
+range without shift: 9A-9A  
+
+Q4
+
+9A
+
+shift x: on mol5-6 tried-> (1 0) (2 -2) in both cases circuit still works 
+                   to exagerate (5 -5), circuit does not work
+
+          with (1 -1) range:  9A-9A
+
+shift y: ...............-> (1 -1) (2 -2) (4 -4) (5 -5) circuit works 
+
+          with (1 -1) range: 9A-9A
+
+shift z: ...............-> (1 -1) (2 -2) circuit works
+
+                           (3 -3) matlab no response
+
+          with (1 -1) range: 9-A9A
+In any case if distance < 9A doesn't invert. if distance > 9A, doesn't send signal
+
+Q5
+
+shift x: (3 -3) works
+
+shift z: (1- 1) doesn't work, probably there is some electric field back propagation due to last molecules being too close to eachother
+
+shift y: (1 -1) doesn't work. The charge distribution is identical to z shift
+
+se la molecola shiftata è in mezzo alla catena non ci sono problemi perché l'informazione viene ancora corretta dal driver.
+Se invece lo shift è sull'ultima cella, l'errore può back propagarsi lungo la catena e la configurazione più stabile energicamente potrebbe non essere quella aspettata nel caso ideale
+
+Q6
+
+Il segnale sul ramo centrale sembra propagarsi correttamente (ha un po' di rumore ma si capisce comunque che sta funzionando)
+I rami superiori e inferiori non riescono a propagare il segnale correttamente. Sotto, solo il pallino in basso a sinistra è molto luminoso. Sopra, il pallino a destra.
+nei rami inferiori e superiori sembra che si attivi solo una parte del segnale.
+
+Riducendo la distanza molecolare out3 -> mantiene info. out1,out2 -> in una cella una molecola contiene entrambe le cariche, l'altra non ne contiene nessuna.
+
+Invertendo il segnale del driver, out3 sbaglia e ou1,out2 fanno come prima
+
+aumentando l'intensità del segnale, non migliora
+
+aumentando la distanza molecolare, out3 non da nemmeno più il segnale di input
+
+Il segnale con rapporto segnale/rumore di out1 e out2 non sapevamo se fosse sufficiente per propagare effettivamente l'informazione. Di fatto sembra di Sì con i 
+test del forcone.
+
+invertendo il driver e togliendo una cella sembra funzionare, ma il test del forcone no (inverte gli output). 
+non invertendo il driver e togliendo una cella funzionano sia il sistema normale che il forcone.
+
+
+Q7
+cambiando stesso angolo sulla y, non funziona
+cambiando stesso angolo sulla z da -> +- same dir -> -1°  a +5°
+                                   -> -+ same dir -> -1°  a -6° ---->  solo -1°
+                                   -> +- opp dir  -> 0° 0° a -9° + 9° funziona
+			           -> -+ opp dir  -> +1 -1 a +9 -9 funziona      ---> non esiste vera e propria intersezione 
+
+cambiando y, ma cambiando anche z in un angolo che funziona normalmente (z -2 -2) -> -+ funziona sempre tranne quando hanno stessa direzione e sono negativi a paritre da -2 -2
+				   
+
+
+Q8
+
+cambiando stesso angolo sulla y, non cambia niente 
+cambiando stesso angolo sulla z -> -+ range di funzionamento da -10° a -1° funziona
+                                -> +- range di funzionamento da -2° a 10° funziona     -->  -2° a -1°
+
+Q9
+
+In both 
+
+
+ 
+
+
+                   

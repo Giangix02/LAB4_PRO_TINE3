@@ -1,0 +1,52 @@
+# Begin: Header
+## this is a comment
+## The files should be named like: 000001.qss, 000002.qss....
+# Title: SCERPA simulation
+#
+# Desc: Optional description line.
+# Desc: Total simulation time:  1  s
+# valuedim: 4    ## Value dimension: number of values per element
+#
+## Fundamental field value units, treated as labels (i.e., unparsed).
+## In general, there should be one label for each value dimension.
+# valueunits: a.u. a.u. a.u. a.u.
+# valuelabels: "Q1 Aggregated Charge"  "Q2 Aggregated Charge" "Q3 Aggregated Charge" "Q4 Aggregated Charge"
+#
+# End: Header
+#
+## Each data records consists of N+1 values: the ID of the node,
+## followed by the N value components.  In this example,
+## N+1 = 4, the two value components are in units of a.u.,
+## corresponding to the four aggregated charges.
+#
+# Begin: data text
+in1a   0.0030   0.9270   -0.2120  -0.7170
+in1b   0.9290   0.0000   -0.2120  -0.7170
+mol1a   0.5210   0.4169   -0.2200  -0.7180
+mol1b   0.9240   0.0030   -0.2100  -0.7170
+mol2a   0.2729   0.6635   -0.2183  -0.7180
+mol2b   0.9268   0.0021   -0.2118  -0.7170
+mol3a   0.2456   0.6901   -0.2179  -0.7180
+mol3b   0.9271   0.0019   -0.2119  -0.7170
+mol4a   0.0936   0.8316   -0.2091  -0.7170
+mol4b   0.9233   0.0033   -0.2097  -0.7170
+mol5a   0.0931   0.8326   -0.2094  -0.7170
+mol5b   0.9233   0.0033   -0.2097  -0.7170
+mol6a   0.0769   0.8496   -0.2099  -0.7170
+mol6b   0.9230   0.0035   -0.2095  -0.7170
+mol7a   0.0030   0.9270   -0.2120  -0.7170
+mol7b   0.9281   0.0009   -0.2120  -0.7170
+mol8a   0.0054   0.9210   -0.2094  -0.7170
+mol8b   0.9260   0.0023   -0.2113  -0.7170
+mol9a   0.0946   0.8306   -0.2091  -0.7170
+mol9b   0.9239   0.0031   -0.2099  -0.7170
+mol10a   0.0610   0.8649   -0.2095  -0.7170
+mol10b   0.8003   0.1320   -0.2153  -0.7170
+mol11a   0.0702   0.8555   -0.2094  -0.7170
+mol11b   0.7340   0.2004   -0.2174  -0.7174
+mol12a   0.0698   0.8559   -0.2094  -0.7170
+mol12b   0.7410   0.1933   -0.2173  -0.7173
+mol13a   0.0130   0.9137   -0.2098  -0.7170
+mol13b   0.5201   0.4179   -0.2200  -0.7180
+# End: data text
+

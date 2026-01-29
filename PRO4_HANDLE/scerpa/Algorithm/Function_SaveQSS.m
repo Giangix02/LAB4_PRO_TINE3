@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                          %
+%       Self-Consistent Electrostatic Potential Algorithm (SCERPA)         %
+%                                                                          %
+%       VLSI Nanocomputing Research Group                                  %
+%       Dept. of Electronics and Telecommunications                        %
+%       Politecnico di Torino, Turin, Italy                                %
+%                                                                          %
+%       People [people you may contact for info]                           %
+%         Yuri Ardesi (yuri.ardesi@polito.it)                              %
+%         Giuliana Beretta (giuliana.beretta@polito.it)                    %
+%                                                                          %
+%       Supervision: Gianluca Piccinini, Mariagrazia Graziano              %
+%                                                                          %
+%       Relevant pubblications doi: 10.1109/TCAD.2019.2960360              %
+%                                   10.1109/TVLSI.2020.3045198             %
+%                                                                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function Function_SaveQSS(time, stack_mol, stack_driver,circuit_name,out_path)
+    
+header = [  '# Begin: Header\n',...
+            '# Title: %s\n',...
+            '#\n',...
+            '# Desc: Optional description line.\n',...
+            '# Desc: Total simulation time:  %d ps\n',...
+            '# valuedim: %d    ## Value dimension: number of values per element\n',...
+            '#\n',...
+            '# valueunits: a.u. a.u. a.u. a.u.\n',...
+            '# valuelabels: "Q1 Aggregated Charge"  "Q2 Aggregated Charge" "Q3 Aggregated Charge" "Q4 Aggregated Charge"\n',...
+            '#\n',...
+            '# End: Header\n',...
+            '#\n',...
+            '#\n',...
+            '# Begin: data text\n'];
+        
+        %variables of the header
+        valuedim = 4;
+        
+        %file management
+        fileName = sprintf('%s/%.4d.qss',out_path,time);
+        fileID = fopen(fileName,'wt');
+        
+        %insert header into qss file
+        fprintf(fileID,header,circuit_name,time,valuedim);
+        
+        %insert drivers
+        for kk=1:stack_driver.num
+            fprintf(fileID,'%s   %.4f   %.4f   %.4f  %.4f\n',...
+                char(stack_driver.stack(kk).identifier_qll),...
+                stack_driver.stack(kk).charge(1).q,...
+                stack_driver.stack(kk).charge(2).q,... 
+                stack_driver.stack(kk).charge(3).q,... 
+                stack_driver.stack(kk).charge(4).q);
+        end
+        
+        %insert molecules
+        for kk=1:stack_mol.num
+            fprintf(fileID,'%s   %.4f   %.4f   %.4f  %.4f\n',...
+                char(stack_mol.stack(kk).identifier_qll),...
+                stack_mol.stack(kk).charge(1).q,...
+                stack_mol.stack(kk).charge(2).q,... 
+                stack_mol.stack(kk).charge(3).q,... 
+                stack_mol.stack(kk).charge(4).q);
+        end
+
+
+        %insert final section
+        fprintf(fileID,'# End: data text\n\n');
+        
+        %close file
+        fclose(fileID);     
+    
+
+end
+
