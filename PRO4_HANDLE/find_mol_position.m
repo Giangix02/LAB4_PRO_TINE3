@@ -1,0 +1,16 @@
+
+
+x_vect(1) = cell2mat(matrix_mol(5,4));
+y_vect1(1) = cell2mat(matrix_mol(5,3));
+y_vect2(1) = cell2mat(matrix_mol(6,3));
+
+for i=0:22
+    x_vect(i+2) = cell2mat(matrix_mol(14+9*i,4));
+    y_vect1(i+2) = cell2mat(matrix_mol(14+9*i,3));
+    y_vect2(i+2) = cell2mat(matrix_mol(14+9*i+1,3));
+end
+
+
+
+figure
+plot(x_vect,y_vect1,'ro',x_vect,y_vect2,'ro')
